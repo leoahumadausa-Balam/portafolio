@@ -1,0 +1,180 @@
+/* =========================================
+   1. CONFIGURACIÓN BASE Y FUENTES
+   ========================================= */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #0f172a; /* Slate 900 */
+    color: #cbd5e1; /* Slate 300 */
+    overflow-x: hidden;
+}
+
+/* Títulos y Marcas */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff !important;
+    letter-spacing: -0.03em;
+}
+
+/* =========================================
+   2. TEMA OSCURO (OVERRIDES DE BOOTSTRAP)
+   ========================================= */
+
+.text-primary { color: #38bdf8 !important; } /* Cyan */
+.text-dark { color: #f1f5f9 !important; } /* Blanco */
+.text-muted { color: #94a3b8 !important; } /* Gris azulado */
+
+/* Fondos de tarjetas y secciones */
+.bg-light, .bg-white, .card {
+    background-color: #1e293b !important; /* Slate 800 */
+    color: #ffffff !important;
+    border: 1px solid #334155 !important;
+}
+
+/* Badges */
+.badge.bg-light {
+    background-color: #334155 !important;
+    color: #e2e8f0 !important;
+    border-color: #475569 !important;
+}
+
+/* =========================================
+   3. ANIMACIONES Y FÍSICA
+   ========================================= */
+
+.shadow-hover {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    top: 0;
+}
+
+.shadow-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15) !important; /* Glow Cyan */
+    border-color: #38bdf8 !important;
+    z-index: 10;
+    background-color: #1e293b !important;
+}
+
+/* =========================================
+   4. UI COMPONENTS
+   ========================================= */
+
+/* Botón Futurista */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Navbar Glassmorphism */
+.navbar {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1e293b;
+}
+
+/* =========================================
+   5. SECCIONES ESPECÍFICAS
+   ========================================= */
+
+#hero {
+    background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 60%);
+}
+
+/* =========================================
+   6. FLIP CARD (CORREGIDO - NO TOCAR)
+   ========================================= */
+
+.flip-card {
+    background-color: transparent;
+    perspective: 1000px; /* Profundidad 3D */
+    cursor: pointer;
+    /* Quitamos min-height fija para que se adapte al contenido */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.6s; /* Velocidad de giro */
+    transform-style: preserve-3d;
+}
+
+/* Acción de Hover */
+.flip-card:hover .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+/* Reglas comunes para ambas caras */
+.flip-card-front, .flip-card-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 0.375rem; /* rounded-3 de bootstrap */
+}
+
+/* CARA FRONTAL: Relative para que defina la altura */
+.flip-card-front {
+    position: relative; 
+    background-color: #0f172a;
+    z-index: 2;
+}
+
+/* CARA TRASERA: Absolute para pegarse detrás */
+.flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e293b;
+    transform: rotateX(180deg);
+    border: 1px solid #38bdf8; /* Borde Cyan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================
+   7. CORRECCIÓN VISIBILIDAD DE BOTONES
+   ========================================= */
+
+/* A. BOTÓN DE LÍNEA (El que dices que no se ve: "Descargar CV") */
+.btn-outline-dark {
+    color: #e2e8f0 !important;       /* Texto: Blanco hueso */
+    border: 2px solid #475569 !important; /* Borde: Gris azulado (visible) */
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    color: #ffffff !important;
+    border-color: #38bdf8 !important; /* Al pasar mouse: Borde Cyan */
+    background-color: rgba(56, 189, 248, 0.1) !important; /* Fondo tintado */
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); /* Resplandor */
+    transform: translateY(-2px);
+}
+
+/* B. BOTÓN SÓLIDO SECUNDARIO (El de "Ver Proyectos") */
+/* Por defecto es negro y se pierde. Lo haremos Slate (Gris Azulado) */
+.btn-dark {
+    background-color: #334155 !important; /* Gris intermedio */
+    border: 1px solid #475569 !important;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.btn-dark:hover {
+    background-color: #475569 !important; /* Un poco más claro al hover */
+    border-color: #94a3b8 !important;
+    transform: translateY(-2px);
+}
