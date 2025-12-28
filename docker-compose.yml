@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080" # Mapea puerto 8080 del host al 8080 del contenedor
+    volumes:
+      - .:/usr/share/nginx/html # Monta directorio actual para ver cambios en vivo
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true # Endurecimiento de seguridad (impide ganar más permisos)

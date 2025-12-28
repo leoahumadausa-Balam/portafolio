@@ -1,0 +1,19 @@
+# Git (historial y configuración)
+.git
+.gitignore
+
+# Archivos de configuración de Docker (no queremos copiarlos dentro de la imagen)
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# IDEs (configuraciones del editor)
+.vscode
+.idea
+
+# Dependencias (se instalarían en el contenedor si hiciera falta, no se copian las locales)
+node_modules
+
+# Documentación y archivos temporales
+*.md
+LICENSE
